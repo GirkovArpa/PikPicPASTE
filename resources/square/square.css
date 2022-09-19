@@ -1,0 +1,51 @@
+@set square {
+  :root {
+    width: 70dip;
+    height: 70dip;
+    background-color: #e1e1de;
+    outline: 1dip solid #b4b4b4;
+    outline-offset: -1dip;
+  }
+
+  :root:disabled {
+    opacity: 0.5;
+  }
+
+  :root:not(:first-child) {
+    behavior: radio;
+    background-position: 50% 50%;
+    background-size: contain;
+    image-rendering: optimize-quality;
+  }
+
+  :root:first-child {
+    position: relative;
+  }
+
+  :root:first-child::before {
+    position: absolute;
+    content: '☰';
+    font-size: 20dip;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  :root:hover,
+  :root:checked {
+    outline-color: #0078d7;
+  }
+
+  :root:active {
+    background-color: #cde5f7 !important;
+  }
+
+  :root:checked {
+    outline-width: 2dip;
+    outline-offset: -2dip;
+  }
+
+  :root:hover {
+    background-color: #e5f1fb;
+  }
+}

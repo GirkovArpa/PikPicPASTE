@@ -1,0 +1,143 @@
+@set tray-menu {
+  :root {
+    font: system;
+    font-rendering-mode: classic;
+    behavior: menu-bar;
+    flow: horizontal;
+    background: #f0f0f0;
+    color: var(base95-text-color);
+    margin: 0;
+    padding: 0;
+  }
+
+  :root > li {
+    padding: 2dip 8dip;
+    margin: 0;
+    white-space: nowrap;
+    width: max-intrinsic;
+    display: block;
+    flow: horizontal;
+  }
+
+  :root > li:current, li:hover {
+    background-color: highlight;
+    color: highlighttext;
+  }
+
+  button[type='menu'] {
+    behavior: button popup-menu;
+  }
+
+  button[type='menu']:owns-popup {
+    background-image: url(theme:button-pressed);
+  }
+
+  menu {
+    font: system;
+    font-rendering-mode: classic;
+    behavior: menu;
+    flow: vertical;
+    display: none;
+    margin: 0;
+    padding: 1dip;
+    max-width: max-intrinsic;
+    border: 1dip solid threedshadow;
+    background-color: window;
+    color: windowtext;
+    margin: 0 1dip;
+  }
+
+  menu menu {
+    max-width: max-intrinsic;
+  }
+
+  menu li {
+    width: *;
+    flow: horizontal;
+    padding-left: 24dip;
+    padding-right: 12dip;
+    padding-top: 4dip;
+    padding-bottom: 4dip;
+    foreground-repeat: no-repeat;
+    foreground-position: 2dip 50%;
+    color: windowtext;
+  }
+
+  menu li:rtl {
+    width: *;
+    padding-right: 24dip;
+    padding-left: 12dip;
+    foreground-repeat: no-repeat;
+    foreground-position-right: 2dip;
+    foreground-position-top: 50%;
+    text-align: right;
+    color: windowtext;
+  }
+
+  menu li:disabled {
+    color: graytext;
+    foreground-image: none;
+  }
+
+  menu li span.accesskey {
+    display: block;
+    width: max-intrinsic;
+    white-space: nowrap;
+    margin-left: *;
+    padding-left: 1em;
+    color: threedshadow;
+  }
+
+  menu li:current span.accesskey {
+    color: #ffd700;
+  }
+
+  menu li:has-child-of-type(menu) {
+    foreground-image: url(stock:arrow-right);
+    foreground-repeat: no-repeat;
+    foreground-position: 100% 50%;
+  }
+
+  menu li:has-child-of-type(menu):rtl {
+    foreground-image: url(stock:arrow-left);
+    foreground-repeat: no-repeat;
+    foreground-position: 0% 50%;
+  }
+
+  menu li:hover:owns-popup,
+  menu li:current {
+    background-color: highlight;
+    color: highlighttext;
+  }
+
+  menu hr {
+    margin: 2dip;
+  }
+
+  menu li[type='radio'] {
+    behavior: radio;
+    foreground-repeat: no-repeat;
+    foreground-position: 3dip 50%;
+    foreground-image: url(stock:circle);
+    foreground-size: 7dip;
+    stroke: var(accent);
+  }
+  menu li[type='radio']:checked {
+    foreground-image: url(stock:disk);
+    fill: var(accent);
+  }
+
+  menu li[type='check'] {
+    behavior: check;
+    foreground-repeat: no-repeat;
+    foreground-position: left 7dip top 50%;
+    foreground-size: 9dip;
+  }
+  menu li[type='check']:checked {
+    foreground-image: url(stock:checkmark);
+    fill: var(accent);
+  }
+  menu li[type='check']:disabled {
+    fill: grey;
+  }
+}
